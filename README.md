@@ -92,9 +92,9 @@ Complete list of APIs to build:
 - [x] `Bustle::Subscribers.add`
 - [x] `Bustle::Publishers.add`
 - [x] `Bustle::Subscriptions.add`
-- [ ] `Bustle::Subscribers.find`
-- [ ] `Bustle::Publishers.find`
-- [ ] `Bustle::Subscriptions.find`
+- [ ] `Bustle::Subscribers.get`
+- [ ] `Bustle::Publishers.get`
+- [ ] `Bustle::Subscriptions.get`
 - [ ] `Bustle::Subscribers.remove`
 - [ ] `Bustle::Publishers.remove`
 - [ ] `Bustle::Subscriptions.remove`
@@ -136,19 +136,19 @@ Bustle::Publishers.add post
 Bustle::Subscriptions.add bustle_publisher, bustle_subscriber
 
 # example
-publisher  = Bustle::Publishers.find(Post.first)
-subscriber = Bustle::Subscribers.find(User.first)
+publisher  = Bustle::Publishers.get(Post.first)
+subscriber = Bustle::Subscribers.get(User.first)
 Bustle::Subscriptions.add publisher, subscriber
 ```
 
 #### Find a Subscriber/Publisher/Subscription
 
 ```ruby
-Bustle::Subscribers.find subscriber
-Bustle::Publishers.find publisher
-Bustle::Subscriptions.find bustle_publisher, bustle_subscriber # => Bustle::Subscription
-Bustle::Subscriptions.find bustle_publisher # => an array of Bustle::Subscription for the publisher
-Bustle::Subscriptions.find bustle_subscriber # => an array of Bustle::Subscription for the subscriber
+Bustle::Subscribers.get subscriber
+Bustle::Publishers.get publisher
+Bustle::Subscriptions.get bustle_publisher, bustle_subscriber # => Bustle::Subscription
+Bustle::Subscriptions.get bustle_publisher # => an array of Bustle::Subscription for the publisher
+Bustle::Subscriptions.get bustle_subscriber # => an array of Bustle::Subscription for the subscriber
 ```
 
 #### Remove a Subscriber/Publisher/Subscription
@@ -162,9 +162,9 @@ Bustle::Subscriptions.remove bustle_publisher, bustle_subscriber
 Or:
 
 ```ruby
-Bustle::Subscribers.find(subscriber).destroy
-Bustle::Publishers.find(publisher).destroy
-Bustle::Subscriptions.find(bustle_publisher, bustle_subscriber).destroy
+Bustle::Subscribers.get(subscriber).destroy
+Bustle::Publishers.get(publisher).destroy
+Bustle::Subscriptions.get(bustle_publisher, bustle_subscriber).destroy
 ```
 
 #### Publish an Activity
@@ -178,7 +178,7 @@ Bustle::Publisher.publish action, activity
 post    = Post.find(1)
 comment = post.comments.add(:content => "I'm a comment")
 Bustle::Publishers.add post
-publisher = Bustle::Publishers.find post
+publisher = Bustle::Publishers.get post
 publisher.publish 'new', comment
 ```
 
@@ -192,7 +192,7 @@ Bustle::Activities.for bustle_subscriber
 Bustle::Subscriber.activities
 
 # example
-subscriber = Bustle::Subscribers.find(User.first)
+subscriber = Bustle::Subscribers.get(User.first)
 subscriber.activities
 ```
 
@@ -204,7 +204,7 @@ Bustle::Activities.by bustle_publisher
 Bustle::Publisher.activities
 
 # example
-publisher = Bustle::Publishers.find(Post.first)
+publisher = Bustle::Publishers.get(Post.first)
 publisher.activities
 ```
 
@@ -216,7 +216,7 @@ Bustle::Activities.for(bustle_subscriber).filter :key => :value
 Bustle::Subscriber.activities.filter :key => :value
 
 # example
-subscriber = Bustle::Subscribers.find(User.first)
+subscriber = Bustle::Subscribers.get(User.first)
 subscriber.activities.filter :action => 'new'
 subscriber.activities.by(publisher).filter(:action => 'new')
 ```
