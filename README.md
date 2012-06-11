@@ -95,6 +95,9 @@ Complete list of APIs to build:
 - [x] `Bustle::Subscribers.get`
 - [x] `Bustle::Publishers.get`
 - [ ] `Bustle::Subscriptions.get`
+- [ ] `Bustle::Subscriptions.for`
+- [ ] `Bustle::Subscriptions.by`
+- [ ] `Bustle::Subscriptions.filter`
 - [ ] `Bustle::Subscribers.remove`
 - [ ] `Bustle::Publishers.remove`
 - [ ] `Bustle::Subscriptions.remove`
@@ -147,8 +150,8 @@ Bustle::Subscriptions.add publisher, subscriber
 Bustle::Subscribers.get subscriber
 Bustle::Publishers.get publisher
 Bustle::Subscriptions.get bustle_publisher, bustle_subscriber # => Bustle::Subscription
-Bustle::Subscriptions.get bustle_publisher # => an array of Bustle::Subscription for the publisher
-Bustle::Subscriptions.get bustle_subscriber # => an array of Bustle::Subscription for the subscriber
+Bustle::Subscriptions.by bustle_publisher # => an array of Bustle::Subscription by the publisher
+Bustle::Subscriptions.for bustle_subscriber # => an array of Bustle::Subscription for the subscriber
 ```
 
 #### Remove a Subscriber/Publisher/Subscription
@@ -208,23 +211,17 @@ publisher = Bustle::Publishers.get(Post.first)
 publisher.activities
 ```
 
-##### Activities Filtering
+#### Filtering (for Activities and Subscriptions)
 
 ```ruby
-Bustle::Activities.for(bustle_subscriber).filter :key => :value
+Bustle::Activities.filter :key => :value
+Bustle::Subscriptions.filter :key => :value
 # or
-Bustle::Subscriber.activities.filter :key => :value
+Bustle::Subscriber.activities :key => :value
 
 # example
 subscriber = Bustle::Subscribers.get(User.first)
-subscriber.activities.filter :action => 'new'
-subscriber.activities.by(publisher).filter(:action => 'new')
-```
-
-Activities are normal enumerable objects from your chosen storage, so in ActiveRecord's case, you may use any Arel methods to query the result:
-
-```ruby
-subscriber.activities.filter(:action => 'new').order('created_at ASC').limit(10)
+subscriber.activities :action => 'new'
 ```
 
 ## License
