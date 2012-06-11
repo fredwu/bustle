@@ -35,34 +35,34 @@ For ActiveRecord, you will need the following migration file:
 class CreateBustleTables < ActiveRecord::Migration
   def change
     create_table :bustle_activities do |t|
-      t.string  :reference_class
-      t.integer :reference_id
+      t.string  :resource_class
+      t.integer :resource_id
       t.string  :action
       t.integer :publisher_id, :null => false
       t.timestamps
     end
 
     create_table :bustle_publishers do |t|
-      t.string  :reference_class, :null => false
-      t.integer :reference_id,    :null => false
+      t.string  :resource_class, :null => false
+      t.integer :resource_id,    :null => false
       t.timestamps
     end
 
     create_table :bustle_subscribers do |t|
-      t.string  :reference_class, :null => false
-      t.integer :reference_id,    :null => false
+      t.string  :resource_class, :null => false
+      t.integer :resource_id,    :null => false
       t.timestamps
     end
 
     create_table :bustle_subscriptions do |t|
       t.integer :publisher_id,  :null => false
-      t.string  :subscriber_id, :null => false
+      t.integer :subscriber_id, :null => false
       t.timestamps
     end
 
     add_index :bustle_activities, :publisher_id
-    add_index :bustle_publishers, [:reference_class, :reference_id], :unique => true
-    add_index :bustle_subscribers, [:reference_class, :reference_id], :unique => true
+    add_index :bustle_publishers, [:resource_class, :resource_id], :unique => true
+    add_index :bustle_subscribers, [:resource_class, :resource_id], :unique => true
     add_index :bustle_subscriptions, :publisher_id
     add_index :bustle_subscriptions, :subscriber_id
     add_index :bustle_subscriptions, [:publisher_id, :subscriber_id], :unique => true

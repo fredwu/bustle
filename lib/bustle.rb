@@ -1,6 +1,10 @@
 require 'active_support/dependencies'
 
 require "bustle/version"
+require "bustle/activities"
+require "bustle/publishers"
+require "bustle/subscribers"
+require "bustle/subscriptions"
 
 module Bustle
   mattr_accessor :storage
@@ -16,5 +20,7 @@ module Bustle
     require 'bustle/models/publisher'
     require 'bustle/models/subscriber'
     require 'bustle/models/subscription'
+
+    require 'orm_adapter'
   end
 end

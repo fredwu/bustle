@@ -21,6 +21,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'simplecov'
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'database_cleaner'
   gem.add_development_dependency 'pry'
   gem.add_development_dependency 'activerecord', '>= 3.0'
+  gem.add_development_dependency 'sqlite3'
 end

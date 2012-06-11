@@ -1,5 +1,5 @@
 shared_examples 'bustle_model' do
-  STORAGES.each do |storage|
+  BUSTLE_STORAGES.each do |storage|
     context "storage #{storage}" do
       before(:all) do
         Bustle.config { |c| c.storage = storage }
