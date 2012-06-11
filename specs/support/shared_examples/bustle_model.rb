@@ -1,8 +1,4 @@
-shared_examples 'bustle_models' do
-  STORAGES = [
-    Bustle::Storage::ActiveRecord
-  ]
-
+shared_examples 'bustle_model' do
   STORAGES.each do |storage|
     context "storage #{storage}" do
       before(:all) do
@@ -11,6 +7,10 @@ shared_examples 'bustle_models' do
 
       it "has correct parent classes" do
         described_class.superclass.to_s.should == "#{Bustle.storage}::#{described_class.name.split('::').last}"
+      end
+
+      it "is able to create a new instance" do
+        described_class.respond_to?(:create!).should == true
       end
     end
   end
