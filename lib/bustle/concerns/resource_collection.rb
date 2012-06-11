@@ -16,6 +16,10 @@ module Bustle::Conern
           :resource_id    => resource.id
         )
       end
+
+      def remove(resource)
+        get(resource).destroy
+      end
     end
   end
 end

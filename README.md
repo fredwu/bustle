@@ -100,10 +100,9 @@ Complete list of APIs to build:
 - [x] `Bustle::Subscriptions.for`
 - [x] `Bustle::Subscriptions.by`
 - [x] `Bustle::Subscriptions.filter`
-- [ ] `Bustle::Activities.remove`
-- [ ] `Bustle::Subscribers.remove`
-- [ ] `Bustle::Publishers.remove`
-- [ ] `Bustle::Subscriptions.remove`
+- [x] `Bustle::Subscribers.remove`
+- [x] `Bustle::Publishers.remove`
+- [x] `Bustle::Subscriptions.remove`
 - [x] `Bustle::Activity.destroy`
 - [x] `Bustle::Subscriber.destroy`
 - [x] `Bustle::Publisher.destroy`

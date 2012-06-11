@@ -15,14 +15,23 @@ module Bustle
 
     it "creates a subscription" do
       subscription = Subscription.to_adapter.get(1)
+
       subscription.publisher_id.should  == publisher.id
       subscription.subscriber_id.should == subscriber.id
     end
 
     it "finds a subscription" do
       subscription = Subscriptions.get publisher, subscriber
+
       subscription.publisher_id.should  == publisher.id
       subscription.subscriber_id.should == subscriber.id
+    end
+
+    it "removes a subscription" do
+      subscription = Subscriptions.get publisher, subscriber
+
+      subscription.destroy
+      Subscriptions.filter.count.should == 0
     end
 
     context "finding multiple subscriptions" do

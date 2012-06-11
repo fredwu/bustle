@@ -15,6 +15,10 @@ module Bustle
         )
       end
 
+      def remove(publisher, subscriber)
+        get(publisher, subscriber).destroy
+      end
+
       def by(publisher)
         Subscription.to_adapter.find_all(
           :publisher_id  => publisher.id
