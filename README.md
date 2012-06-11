@@ -92,8 +92,8 @@ Complete list of APIs to build:
 - [x] `Bustle::Subscribers.add`
 - [x] `Bustle::Publishers.add`
 - [x] `Bustle::Subscriptions.add`
-- [ ] `Bustle::Subscribers.get`
-- [ ] `Bustle::Publishers.get`
+- [x] `Bustle::Subscribers.get`
+- [x] `Bustle::Publishers.get`
 - [ ] `Bustle::Subscriptions.get`
 - [ ] `Bustle::Subscribers.remove`
 - [ ] `Bustle::Publishers.remove`

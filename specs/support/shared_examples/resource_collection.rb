@@ -5,4 +5,11 @@ shared_examples 'resource_collection' do
     model.resource_class.should == 'Bustle::Dummy::User'
     model.resource_id.should == 42
   end
+
+  it "finds a model record" do
+    described_class.add user
+    model = described_class.get user
+    model.resource_class.should == 'Bustle::Dummy::User'
+    model.resource_id.should == 42
+  end
 end

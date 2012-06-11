@@ -9,6 +9,13 @@ module Bustle::Conern
           :resource_id    => resource.id
         )
       end
+
+      def get(resource)
+        self::RESOURCE_NAME.constantize.to_adapter.find_first(
+          :resource_class => resource.class.name,
+          :resource_id    => resource.id
+        )
+      end
     end
   end
 end
