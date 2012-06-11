@@ -23,11 +23,6 @@ First of all, you will need to configure Bustle. If you are using Rails, you can
 
 ```ruby
 Bustle.config do |c|
-  # Specify an intepreter strategy for intepreting app data
-  # i.e. what your application uses for persistence
-  # Bustle ships with an ActiveRecord intepreter strategy
-  c.intepreter = Bustle::Intepreter::ActiveRecord
-
   # Specify a storage strategy for storing activities
   # Bustle ships with an ActiveRecord storage strategy
   c.storage = Bustle::Storage::ActiveRecord
