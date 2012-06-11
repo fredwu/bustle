@@ -11,5 +11,10 @@ module Bustle
 
   def self.config
     yield self
+
+    require 'bustle/activity'
+    require 'bustle/publisher'
+    require 'bustle/subscriber'
+    require 'bustle/subscription'
   end
 end
