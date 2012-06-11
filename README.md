@@ -89,26 +89,26 @@ When activities occur:
 
 Complete list of APIs to build:
 
-- [x] Bustle::Subscribers.add
-- [x] Bustle::Publishers.add
-- [x] Bustle::Subscriptions.add
-- [ ] Bustle::Subscribers.find
-- [ ] Bustle::Publishers.find
-- [ ] Bustle::Subscriptions.find
-- [ ] Bustle::Subscribers.remove
-- [ ] Bustle::Publishers.remove
-- [ ] Bustle::Subscriptions.remove
-- [ ] Bustle::Subscriber.destroy
-- [ ] Bustle::Publisher.destroy
-- [ ] Bustle::Subscription.destroy
-- [x] Bustle::Activities.add
-- [ ] Bustle::Publisher.publish
-- [ ] Bustle::Activities.for
-- [ ] Bustle::Subscriber.activities
-- [ ] Bustle::Activities.by
-- [ ] Bustle::Publisher.activities
-- [ ] Bustle::Activities.filter
-- [ ] Bustle::Activities.delegate
+- [x] `Bustle::Subscribers.add`
+- [x] `Bustle::Publishers.add`
+- [x] `Bustle::Subscriptions.add`
+- [ ] `Bustle::Subscribers.find`
+- [ ] `Bustle::Publishers.find`
+- [ ] `Bustle::Subscriptions.find`
+- [ ] `Bustle::Subscribers.remove`
+- [ ] `Bustle::Publishers.remove`
+- [ ] `Bustle::Subscriptions.remove`
+- [ ] `Bustle::Subscriber.destroy`
+- [ ] `Bustle::Publisher.destroy`
+- [ ] `Bustle::Subscription.destroy`
+- [x] `Bustle::Activities.add`
+- [ ] `Bustle::Publisher.publish`
+- [ ] `Bustle::Activities.for`
+- [ ] `Bustle::Subscriber.activities`
+- [ ] `Bustle::Activities.by`
+- [ ] `Bustle::Publisher.activities`
+- [ ] `Bustle::Activities.filter`
+- [ ] `Bustle::Activities.delegate`
 
 #### Register a Subscriber
 
