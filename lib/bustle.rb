@@ -12,9 +12,9 @@ module Bustle
   def self.config
     yield self
 
-    require 'bustle/activity'
-    require 'bustle/publisher'
-    require 'bustle/subscriber'
-    require 'bustle/subscription'
+    require 'bustle/models/activity'
+    require 'bustle/models/publisher'
+    require 'bustle/models/subscriber'
+    require 'bustle/models/subscription'
   end
 end
