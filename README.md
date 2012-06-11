@@ -89,6 +89,8 @@ When activities occur:
 
 Complete list of APIs to build:
 
+- [x] `Bustle::Publisher.publish`
+- [x] `Bustle::Activities.add`
 - [x] `Bustle::Subscribers.add`
 - [x] `Bustle::Publishers.add`
 - [x] `Bustle::Subscriptions.add`
@@ -98,14 +100,14 @@ Complete list of APIs to build:
 - [x] `Bustle::Subscriptions.for`
 - [x] `Bustle::Subscriptions.by`
 - [x] `Bustle::Subscriptions.filter`
+- [ ] `Bustle::Activities.remove`
 - [ ] `Bustle::Subscribers.remove`
 - [ ] `Bustle::Publishers.remove`
 - [ ] `Bustle::Subscriptions.remove`
-- [ ] `Bustle::Subscriber.destroy`
-- [ ] `Bustle::Publisher.destroy`
-- [ ] `Bustle::Subscription.destroy`
-- [x] `Bustle::Activities.add`
-- [x] `Bustle::Publisher.publish`
+- [x] `Bustle::Activity.destroy`
+- [x] `Bustle::Subscriber.destroy`
+- [x] `Bustle::Publisher.destroy`
+- [x] `Bustle::Subscription.destroy`
 - [ ] `Bustle::Activities.for`
 - [ ] `Bustle::Subscriber.activities`
 - [ ] `Bustle::Activities.by`

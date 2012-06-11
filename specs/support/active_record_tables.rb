@@ -20,25 +20,25 @@ ActiveRecord::Migration.suppress_messages do
       t.string  :resource_class
       t.integer :resource_id
       t.string  :action
-      t.integer :publisher_id, :null => false
+      t.integer :publisher_id
       t.timestamps
     end
 
     create_table :bustle_publishers, :force => true do |t|
-      t.string  :resource_class, :null => false
-      t.integer :resource_id,    :null => false
+      t.string  :resource_class
+      t.integer :resource_id
       t.timestamps
     end
 
     create_table :bustle_subscribers, :force => true do |t|
-      t.string  :resource_class, :null => false
-      t.integer :resource_id,    :null => false
+      t.string  :resource_class
+      t.integer :resource_id
       t.timestamps
     end
 
     create_table :bustle_subscriptions, :force => true do |t|
-      t.integer :publisher_id,  :null => false
-      t.integer :subscriber_id, :null => false
+      t.integer :publisher_id
+      t.integer :subscriber_id
       t.timestamps
     end
   end

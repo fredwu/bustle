@@ -2,6 +2,7 @@ require 'simplecov'
 SimpleCov.start
 
 require 'rspec/autorun'
+require 'factory_girl'
 require 'database_cleaner'
 require 'pry'
 
@@ -13,6 +14,8 @@ BUSTLE_STORAGES = [
 ]
 
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+
   config.before(:suite) do
     module Bustle::Dummy
       class User < ActiveRecord::Base; end
