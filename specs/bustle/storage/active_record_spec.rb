@@ -14,10 +14,10 @@ module Bustle::Storage
     end
 
     it "has correct table names" do
-      ActiveRecord::Activity.table_name = 'bustle_activities'
-      ActiveRecord::Publisher.table_name = 'bustle_publishers'
-      ActiveRecord::Subscriber.table_name = 'bustle_subscribers'
-      ActiveRecord::Subscription.table_name = 'bustle_subscriptions'
+      ActiveRecord::Activity.table_name.should == 'bustle_activities'
+      ActiveRecord::Publisher.table_name.should == 'bustle_publishers'
+      ActiveRecord::Subscriber.table_name.should == 'bustle_subscribers'
+      ActiveRecord::Subscription.table_name.should == 'bustle_subscriptions'
     end
   end
 end
