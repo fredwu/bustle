@@ -1,4 +1,4 @@
-shared_examples 'bustle_model' do
+shared_examples 'model' do
   BUSTLE_STORAGES.each do |storage|
     context "storage #{storage}" do
       before(:all) do

@@ -4,6 +4,6 @@ module Bustle
   describe 'Activity' do
     let(:described_class) { Activity }
 
-    it_behaves_like 'bustle_model'
+    it_behaves_like 'model'
   end
 end

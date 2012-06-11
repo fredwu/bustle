@@ -1,4 +1,4 @@
-shared_examples 'bustle_resource_collection' do
+shared_examples 'resource_collection' do
   it "adds a model record" do
     described_class.add user
     model = described_class::RESOURCE_NAME.constantize.to_adapter.get(1)

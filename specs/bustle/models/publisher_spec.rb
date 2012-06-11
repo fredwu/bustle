@@ -5,7 +5,7 @@ module Bustle
     let(:described_class) { Publisher }
 
     include_context 'app_resources'
-    it_behaves_like 'bustle_model'
+    it_behaves_like 'model'
 
     it "is able to publish an activity" do
       publisher = Publishers.add post
