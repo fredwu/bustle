@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Bustle::VERSION
 
   gem.add_dependency 'activesupport', '>= 3.0'
-  gem.add_dependency 'orm_adapter'
+  gem.add_dependency 'orm_adapter', '~> 0.1.0'
 
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'simplecov'
