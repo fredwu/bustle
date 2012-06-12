@@ -7,6 +7,14 @@ The typical use cases are:
 - Timeline (e.g. tracking activities such as posting and commenting for users)
 - Logging
 
+The advantages of Bustle are:
+
+- It is lightweight and simple to use
+- It is largely self-contained and separated from you core app logic
+- It works nicely with ActiveRecord out of box
+- It can be extended to use with other databases
+- It has full unit test coverage
+
 ## Installation
 
 Add this line to your application's Gemfile:
