@@ -30,7 +30,7 @@ module Bustle
     it "removes a subscription" do
       subscription = Subscriptions.get publisher, subscriber
 
-      subscription.destroy
+      Subscriptions.remove publisher, subscriber
       Subscriptions.filter.count.should == 0
     end
 

@@ -18,7 +18,7 @@ shared_examples 'resource_collection' do
   end
 
   it "removes a model record" do
-    described_class.get(user).destroy
+    described_class.remove(user)
     resource_class.find_all({}).count.should == 0
   end
 end
