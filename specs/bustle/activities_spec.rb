@@ -10,20 +10,25 @@ module Bustle
     let(:subscriber2) { Subscribers.add user }
 
     it "creates an activity" do
-      Activities.add publisher, 'show', comment
+      Activities.add publisher, {
+        :action   => 'show',
+        :resource => comment,
+        :data     => 'hello world'
+      }
 
       activity = Activity.to_adapter.get(1)
       activity.resource_class.should  == 'Bustle::Dummy::Comment'
       activity.resource_id.should == 101
       activity.action.should == 'show'
+      activity.data.should == 'hello world'
       activity.publisher_id.should == publisher.id
     end
 
     context "multiple activities" do
       before do
-        2.times { Activities.add publisher, 'show', comment }
-        1.times { Activities.add publisher, 'reply', comment }
-        2.times { Activities.add publisher2, 'reply', comment }
+        2.times { Activities.add publisher, { :action => 'show' } }
+        1.times { Activities.add publisher, { :action => 'reply' } }
+        2.times { Activities.add publisher2, { :action => 'reply' } }
       end
 
       it "finds all activities" do

@@ -19,7 +19,8 @@ ActiveRecord::Migration.suppress_messages do
     create_table :bustle_activities, :force => true do |t|
       t.string  :resource_class
       t.integer :resource_id
-      t.string  :action
+      t.string  :action, :default => ''
+      t.text    :data,   :default => ''
       t.integer :publisher_id
       t.timestamps
     end

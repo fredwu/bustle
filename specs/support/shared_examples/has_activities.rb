@@ -8,7 +8,7 @@ shared_examples 'has_activities' do
     end
 
     it "has activities" do
-      2.times { publisher.publish 'show', comment }
+      2.times { publisher.publish }
 
       publisher.activities.count.should == 2
       subscriber.activities.count.should == 2

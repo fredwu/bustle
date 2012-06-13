@@ -47,7 +47,8 @@ class CreateBustleTables < ActiveRecord::Migration
     create_table :bustle_activities do |t|
       t.string  :resource_class
       t.integer :resource_id
-      t.string  :action
+      t.string  :action,       :default => ''
+      t.text    :data,         :default => ''
       t.integer :publisher_id, :null => false
       t.timestamps
     end
@@ -155,16 +156,28 @@ Bustle::Subscriptions.get(bustle_publisher, bustle_subscriber).destroy
 #### Publish an Activity
 
 ```ruby
-Bustle::Activities.add bustle_publisher, action, activity
+Bustle::Activities.add bustle_publisher, {
+  :resource => some_resource,
+  :action   => some_string,
+  :data     => some_text
+}
 # or
-Bustle::Publisher.publish action, activity
+Bustle::Publisher.publish({
+  :resource => some_resource,
+  :action   => some_string,
+  :data     => some_text
+})
 
 # example
 post    = Post.find(1)
 comment = post.comments.add(:content => "I'm a comment")
 Bustle::Publishers.add post
 publisher = Bustle::Publishers.get post
-publisher.publish 'new', comment
+publisher.publish({
+  :resource => comment,
+  :action   => 'new,
+  :data     => 'a new comment has been posted'
+})
 ```
 
 #### Activities

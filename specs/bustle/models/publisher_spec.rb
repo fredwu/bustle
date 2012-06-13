@@ -10,7 +10,10 @@ module Bustle
 
     it "is able to publish an activity" do
       publisher = Publishers.add post
-      publisher.publish 'reply', comment
+      publisher.publish({
+        :resource => comment,
+        :action   => 'reply'
+      })
       Activity.to_adapter.get(1).action.should == 'reply'
     end
   end

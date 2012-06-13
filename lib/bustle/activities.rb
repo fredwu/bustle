@@ -6,11 +6,17 @@ module Bustle
     include Concern::ByPublisher
 
     class << self
-      def add(publisher, action, activity_resource)
+      def add(publisher, data = {})
+        if resource = data.delete(:resource)
+          data[:resource_class] = resource.class.name
+          data[:resource_id]    = resource.id
+        end
+
         Activity.to_adapter.create!(
-          :resource_class => activity_resource.class.name,
-          :resource_id    => activity_resource.id,
-          :action         => action,
+          :resource_class => data[:resource_class],
+          :resource_id    => data[:resource_id],
+          :action         => data[:action],
+          :data           => data[:data],
           :publisher_id   => publisher.id
         )
       end
