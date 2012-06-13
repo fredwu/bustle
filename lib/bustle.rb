@@ -2,6 +2,7 @@ require 'active_support/dependencies'
 require 'active_support/concern'
 
 require "bustle/version"
+require "bustle/concerns/filterable"
 require "bustle/concerns/resource_collection"
 require "bustle/activities"
 require "bustle/publishers"

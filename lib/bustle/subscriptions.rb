@@ -1,5 +1,9 @@
 module Bustle
   class Subscriptions
+    RESOURCE_NAME = 'Bustle::Subscription'
+
+    include Concern::Filterable
+
     class << self
       def add(publisher, subscriber)
         Subscription.to_adapter.create!(
@@ -29,10 +33,6 @@ module Bustle
         Subscription.to_adapter.find_all(
           :subscriber_id => subscriber.id
         )
-      end
-
-      def filter(options = {})
-        Subscription.to_adapter.find_all(options)
       end
     end
   end
