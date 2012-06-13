@@ -93,34 +93,6 @@ When activities occur:
 
 ### API
 
-#### Completion Status
-
-Complete list of APIs to build:
-
-- [x] `Bustle::Publisher.publish`
-- [x] `Bustle::Activities.add`
-- [x] `Bustle::Subscribers.add`
-- [x] `Bustle::Publishers.add`
-- [x] `Bustle::Subscriptions.add`
-- [x] `Bustle::Subscribers.get`
-- [x] `Bustle::Publishers.get`
-- [x] `Bustle::Subscriptions.get`
-- [x] `Bustle::Subscriptions.for`
-- [x] `Bustle::Subscriptions.by`
-- [x] `Bustle::Subscriptions.filter`
-- [x] `Bustle::Subscribers.remove`
-- [x] `Bustle::Publishers.remove`
-- [x] `Bustle::Subscriptions.remove`
-- [x] `Bustle::Activity.destroy`
-- [x] `Bustle::Subscriber.destroy`
-- [x] `Bustle::Publisher.destroy`
-- [x] `Bustle::Subscription.destroy`
-- [x] `Bustle::Activities.for`
-- [ ] `Bustle::Subscriber.activities`
-- [x] `Bustle::Activities.by`
-- [ ] `Bustle::Publisher.activities`
-- [x] `Bustle::Activities.filter`
-
 #### Register a Subscriber
 
 ```ruby
