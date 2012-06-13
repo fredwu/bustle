@@ -12,8 +12,10 @@ The advantages of Bustle are:
 - It is lightweight and simple to use
 - It is largely self-contained and separated from you core app logic
 - It works nicely with ActiveRecord out of box
-- It can be extended to use with other databases
+- It is ORM-agnostic therefore can be extended to use with other databases
 - It has full unit test coverage
+
+Bustle is built for simplicity and extensibility. If you are after high performance pub/sub then this gem is not for you.
 
 ## Installation
 
