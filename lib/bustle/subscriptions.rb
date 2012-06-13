@@ -4,6 +4,7 @@ module Bustle
 
     include Concern::Filterable
     include Concern::ByPublisher
+    include Concern::ForSubscriber
 
     class << self
       def add(publisher, subscriber)
@@ -22,10 +23,6 @@ module Bustle
 
       def remove(publisher, subscriber)
         get(publisher, subscriber).destroy
-      end
-
-      def for(subscriber, conditions = {})
-        filter({ :subscriber_id => subscriber.id }.merge(conditions))
       end
     end
   end

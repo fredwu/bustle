@@ -4,6 +4,7 @@ require 'active_support/concern'
 require "bustle/version"
 require "bustle/concerns/filterable"
 require "bustle/concerns/by_publisher"
+require "bustle/concerns/for_subscriber"
 require "bustle/concerns/resource_collection"
 require "bustle/activities"
 require "bustle/publishers"
