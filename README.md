@@ -175,8 +175,8 @@ Bustle::Publishers.add post
 publisher = Bustle::Publishers.get post
 publisher.publish({
   :resource => comment,
-  :action   => 'new,
-  :data     => 'a new comment has been posted'
+  :action   => 'new',
+  :data     => 'useful for putting serialized data or JSON here'
 })
 ```
 
