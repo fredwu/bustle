@@ -15,10 +15,10 @@ module Bustle
         )
       end
 
-      def for(subscriber)
+      def for(subscriber, conditions = {})
         publisher_ids = Subscriptions.for(subscriber).map(&:publisher_id)
 
-        filter(:publisher_id => publisher_ids)
+        filter({ :publisher_id => publisher_ids }.merge(conditions))
       end
     end
   end

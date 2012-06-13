@@ -56,8 +56,20 @@ module Bustle
         Subscriptions.by(publisher).count.should == 2
       end
 
+      it "finds subscriptions by a publisher and conditions" do
+        Subscriptions.by(publisher, {
+          :subscriber_id => subscriber2.id
+        }).count.should == 1
+      end
+
       it "finds subscriptions for a subscriber" do
         Subscriptions.for(subscriber).count.should == 2
+      end
+
+      it "finds subscriptions for a subscriber and conditions" do
+        Subscriptions.for(subscriber, {
+          :publisher_id => publisher.id
+        }).count.should == 1
       end
     end
   end

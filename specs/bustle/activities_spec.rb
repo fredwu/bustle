@@ -21,28 +21,44 @@ module Bustle
 
     context "multiple activities" do
       before do
-        3.times { Activities.add publisher, 'show', comment }
+        2.times { Activities.add publisher, 'show', comment }
+        1.times { Activities.add publisher, 'reply', comment }
+        2.times { Activities.add publisher2, 'reply', comment }
       end
 
       it "finds all activities" do
-        Activities.filter.count.should == 3
+        Activities.filter.count.should == 5
       end
 
-      it "finds all activities by a publisher" do
-        2.times { Activities.add publisher2, 'reply', comment }
+      context "#by" do
+        it "finds all activities by a publisher" do
+          Activities.by(publisher).count.should == 3
+        end
 
-        Activities.by(publisher2).count.should == 2
+        it "finds all activities filtered by conditions" do
+          Activities.by(publisher, {
+            :action => 'show'
+          }).count.should == 2
+        end
       end
 
-      it "finds all activities for a subscriber" do
-        2.times { Activities.add publisher2, 'reply', comment }
+      context "#for" do
+        before do
+          Subscriptions.add publisher, subscriber
+          Subscriptions.add publisher, subscriber2
+          Subscriptions.add publisher2, subscriber2
+        end
 
-        Subscriptions.add publisher, subscriber
-        Subscriptions.add publisher, subscriber2
-        Subscriptions.add publisher2, subscriber2
+        it "finds all activities for a subscriber" do
+          Activities.for(subscriber).count.should == 3
+          Activities.for(subscriber2).count.should == 5
+        end
 
-        Activities.for(subscriber).count.should == 3
-        Activities.for(subscriber2).count.should == 5
+        it "finds all activities filtered by conditions" do
+          Activities.for(subscriber2, {
+            :publisher_id => publisher2.id
+          }).count.should == 2
+        end
       end
     end
   end

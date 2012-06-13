@@ -120,7 +120,6 @@ Complete list of APIs to build:
 - [x] `Bustle::Activities.by`
 - [ ] `Bustle::Publisher.activities`
 - [x] `Bustle::Activities.filter`
-- [ ] `Bustle::Activities.delegate`
 
 #### Register a Subscriber
 

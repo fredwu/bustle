@@ -3,8 +3,8 @@ module Bustle::Concern
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def by(publisher)
-        filter(:publisher_id  => publisher.id)
+      def by(publisher, conditions = {})
+        filter({ :publisher_id => publisher.id }.merge(conditions))
       end
     end
   end

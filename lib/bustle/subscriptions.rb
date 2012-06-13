@@ -24,8 +24,8 @@ module Bustle
         get(publisher, subscriber).destroy
       end
 
-      def for(subscriber)
-        filter(:subscriber_id => subscriber.id)
+      def for(subscriber, conditions = {})
+        filter({ :subscriber_id => subscriber.id }.merge(conditions))
       end
     end
   end
