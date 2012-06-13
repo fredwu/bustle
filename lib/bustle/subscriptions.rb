@@ -3,6 +3,7 @@ module Bustle
     RESOURCE_NAME = 'Bustle::Subscription'
 
     include Concern::Filterable
+    include Concern::ByPublisher
 
     class << self
       def add(publisher, subscriber)
@@ -23,16 +24,8 @@ module Bustle
         get(publisher, subscriber).destroy
       end
 
-      def by(publisher)
-        Subscription.to_adapter.find_all(
-          :publisher_id  => publisher.id
-        )
-      end
-
       def for(subscriber)
-        Subscription.to_adapter.find_all(
-          :subscriber_id => subscriber.id
-        )
+        filter(:subscriber_id => subscriber.id)
       end
     end
   end
