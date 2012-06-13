@@ -1,4 +1,4 @@
-module Bustle::Conern
+module Bustle::Concern
   module ResourceCollection
     extend ActiveSupport::Concern
 
