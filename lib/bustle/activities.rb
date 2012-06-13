@@ -2,6 +2,9 @@ module Bustle
   class Activities
     RESOURCE_NAME = 'Bustle::Activity'
 
+    include Concern::Filterable
+    include Concern::ByPublisher
+
     def self.add(publisher, action, activity_resource)
       Activity.to_adapter.create!(
         :resource_class => activity_resource.class.name,
