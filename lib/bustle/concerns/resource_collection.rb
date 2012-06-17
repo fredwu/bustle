@@ -4,6 +4,12 @@ module Bustle::Concern
 
     module ClassMethods
       def add(resource)
+        add!(resource)
+      rescue
+        get(resource)
+      end
+
+      def add!(resource)
         self::RESOURCE_NAME.constantize.to_adapter.create!(
           :resource_class => resource.class.name,
           :resource_id    => resource.id

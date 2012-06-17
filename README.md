@@ -99,7 +99,10 @@ When activities occur:
 #### Register a Subscriber
 
 ```ruby
+# returns a subscriber instance upon duplicated entry
 Bustle::Subscribers.add subscriber
+# raises error upon duplicated entry
+Bustle::Subscribers.add! subscriber
 
 # example
 user = User.find(1)
@@ -109,7 +112,10 @@ Bustle::Subscribers.add user
 #### Register a Publisher
 
 ```ruby
+# returns a publisher instance upon duplicated entry
 Bustle::Publishers.add publisher
+# raises error upon duplicated entry
+Bustle::Publishers.add! publisher
 
 # example
 post = Post.find(1)

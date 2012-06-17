@@ -42,5 +42,12 @@ ActiveRecord::Migration.suppress_messages do
       t.integer :subscriber_id
       t.timestamps
     end
+
+    add_index :bustle_activities, :publisher_id
+    add_index :bustle_publishers, [:resource_class, :resource_id], :unique => true
+    add_index :bustle_subscribers, [:resource_class, :resource_id], :unique => true
+    add_index :bustle_subscriptions, :publisher_id
+    add_index :bustle_subscriptions, :subscriber_id
+    add_index :bustle_subscriptions, [:publisher_id, :subscriber_id], :unique => true
   end
 end
