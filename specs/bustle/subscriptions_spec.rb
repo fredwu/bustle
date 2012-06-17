@@ -20,6 +20,14 @@ module Bustle
       subscription.subscriber_id.should == subscriber.id
     end
 
+    it "gets a subscription if it already exists" do
+      Subscriptions.add(publisher, subscriber).should be_kind_of(Subscription)
+    end
+
+    it "gets a subscription if it already exists" do
+      expect { Subscriptions.add! publisher, subscriber }.to raise_error
+    end
+
     it "finds a subscription" do
       subscription = Subscriptions.get publisher, subscriber
 

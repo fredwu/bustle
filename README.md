@@ -125,7 +125,10 @@ Bustle::Publishers.add post
 #### Create a Subscription
 
 ```ruby
+# returns a subscription instance upon duplicated entry
 Bustle::Subscriptions.add bustle_publisher, bustle_subscriber
+# raises error upon duplicated entry
+Bustle::Subscriptions.add! bustle_publisher, bustle_subscriber
 
 # example
 publisher  = Bustle::Publishers.get(Post.first)

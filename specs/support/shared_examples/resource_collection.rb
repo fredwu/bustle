@@ -1,5 +1,5 @@
 shared_examples 'resource_collection' do
-  let(:resource_class) { described_class::RESOURCE_NAME.constantize.to_adapter }
+  let(:resource_class) { described_class::RESOURCE_NAME.constantize }
 
   context "#add" do
     it "adds a model record" do
@@ -8,11 +8,11 @@ shared_examples 'resource_collection' do
 
     it "gets the model if it already exists" do
       described_class.add(user)
-      described_class.add(user).resource_class.should == 'Bustle::Dummy::User'
+      described_class.add(user).should be_kind_of(resource_class)
     end
 
     it "explicitly adds a model record" do
-      described_class.add!(user).resource_class.should == 'Bustle::Dummy::User'
+      described_class.add!(user).should be_kind_of(resource_class)
     end
 
     it "raises error if the model already exists" do
@@ -27,7 +27,7 @@ shared_examples 'resource_collection' do
     end
 
     it "adds a model record" do
-      model = resource_class.get(1)
+      model = resource_class.to_adapter.get(1)
       model.resource_class.should == 'Bustle::Dummy::User'
       model.resource_id.should == 42
     end
@@ -40,7 +40,7 @@ shared_examples 'resource_collection' do
 
     it "removes a model record" do
       described_class.remove(user)
-      resource_class.find_all({}).count.should == 0
+      resource_class.to_adapter.find_all({}).count.should == 0
     end
   end
 end

@@ -7,11 +7,17 @@ module Bustle
     include Concern::ForSubscriber
 
     class << self
-      def add(publisher, subscriber)
+      def add!(publisher, subscriber)
         Subscription.to_adapter.create!(
           :publisher_id  => publisher.id,
           :subscriber_id => subscriber.id
         )
+      end
+
+      def add(publisher, subscriber)
+        add!(publisher, subscriber)
+      rescue
+        get(publisher, subscriber)
       end
 
       def get(publisher, subscriber)
