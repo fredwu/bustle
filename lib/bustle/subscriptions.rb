@@ -27,8 +27,18 @@ module Bustle
         )
       end
 
+      def remove!(publisher, subscriber)
+        subscription = get(publisher, subscriber)
+        if subscription.nil?
+          raise "Subscription between #{publisher} and #{subscriber} does not exist therefore cannot be removed."
+        else
+          subscription.destroy
+        end
+      end
+
       def remove(publisher, subscriber)
-        get(publisher, subscriber).destroy
+        subscription = get(publisher, subscriber)
+        subscription.destroy unless subscription.nil?
       end
     end
   end

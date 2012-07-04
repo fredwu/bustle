@@ -23,6 +23,16 @@ module Bustle::Concern
         )
       end
 
+      def remove!(resource)
+        r = get(resource)
+
+        if r.nil?
+          raise "#{resource} does not exist therefore cannot be removed."
+        else
+          r.destroy
+        end
+      end
+
       def remove(resource)
         get(resource).destroy
       end

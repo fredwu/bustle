@@ -42,5 +42,14 @@ shared_examples 'resource_collection' do
       described_class.remove(user)
       resource_class.to_adapter.find_all({}).count.should == 0
     end
+
+    it "#remove! a model record" do
+      described_class.remove!(user)
+      resource_class.to_adapter.find_all({}).count.should == 0
+    end
+
+    it "#remove! with error" do
+      expect { described_class.remove!(post) }.to raise_error
+    end
   end
 end

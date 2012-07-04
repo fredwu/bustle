@@ -152,6 +152,7 @@ Bustle::Subscriptions.for bustle_subscriber # => an array of Bustle::Subscriptio
 Bustle::Subscribers.remove subscriber
 Bustle::Publishers.remove publisher
 Bustle::Subscriptions.remove bustle_publisher, bustle_subscriber
+# or use `remove!` to raise an exception if the resource cannot be found
 ```
 
 Or:

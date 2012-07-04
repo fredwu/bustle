@@ -35,11 +35,28 @@ module Bustle
       subscription.subscriber_id.should == subscriber.id
     end
 
-    it "removes a subscription" do
-      subscription = Subscriptions.get publisher, subscriber
+    context "remove" do
+      it "removes a subscription" do
+        subscription = Subscriptions.get publisher, subscriber
 
-      Subscriptions.remove publisher, subscriber
-      Subscriptions.filter.count.should == 0
+        Subscriptions.remove publisher, subscriber
+        Subscriptions.filter.count.should == 0
+      end
+
+      it "#remove! a subscription" do
+        subscription = Subscriptions.get publisher, subscriber
+
+        Subscriptions.remove! publisher, subscriber
+        Subscriptions.filter.count.should == 0
+      end
+
+      it "does not error out when removing a non-existent subscription" do
+        expect { Subscriptions.remove subscriber, subscriber2 }.not_to raise_error
+      end
+
+      it "error out when removing a non-existent subscription" do
+        expect { Subscriptions.remove! subscriber, subscriber2 }.to raise_error
+      end
     end
 
     context "finding multiple subscriptions" do
