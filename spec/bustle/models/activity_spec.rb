@@ -5,5 +5,7 @@ module Bustle
     let(:described_class) { Activity }
 
     it_behaves_like 'model'
+    it_behaves_like 'publisher_resource'
+    it_behaves_like 'target_resource'
   end
 end

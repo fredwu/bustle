@@ -163,6 +163,19 @@ Bustle::Publishers.get(publisher).destroy
 Bustle::Subscriptions.get(bustle_publisher, bustle_subscriber).destroy
 ```
 
+#### Find Referenced Resources
+
+These are helpful for finding referenced resources.
+
+```ruby
+Bustle::Activity#publisher_resource
+Bustle::Activity#target_resource
+Bustle::Publisher#target_resource
+Bustle::Subscriber#target_resource
+Bustle::Subscription#publisher_resource
+Bustle::Subscription#subscriber_resource
+```
+
 #### Publish an Activity
 
 ```ruby
