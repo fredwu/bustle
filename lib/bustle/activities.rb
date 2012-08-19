@@ -7,6 +7,8 @@ module Bustle
 
     class << self
       def add(publisher, data = {})
+        data = data.dup
+
         if resource = data.delete(:resource)
           data[:resource_class] = resource.class.name
           data[:resource_id]    = resource.id

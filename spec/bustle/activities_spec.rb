@@ -10,11 +10,15 @@ module Bustle
     let(:subscriber2) { Subscribers.add user }
 
     it "creates an activity" do
-      Activities.add publisher, {
+      data = {
         :action   => 'show',
         :resource => comment,
         :data     => 'hello world'
       }
+
+      data2 = data.dup
+
+      Activities.add publisher, data
 
       activity = Activity.to_adapter.get(1)
       activity.resource_class.should  == 'Bustle::Dummy::Comment'
@@ -22,6 +26,7 @@ module Bustle
       activity.action.should == 'show'
       activity.data.should == 'hello world'
       activity.publisher_id.should == publisher.id
+      data.should == data2
     end
 
     context "multiple activities" do
