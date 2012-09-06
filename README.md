@@ -1,4 +1,4 @@
-# Bustle [![Build Status](https://secure.travis-ci.org/fredwu/bustle.png?branch=master)](http://travis-ci.org/fredwu/bustle) [![Dependency Status](https://gemnasium.com/fredwu/bustle.png)](https://gemnasium.com/fredwu/bustle) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/fredwu/bustle)
+# Bustle [![endorse](http://api.coderwall.com/fredwu/endorsecount.png)](http://coderwall.com/fredwu) [![Build Status](https://secure.travis-ci.org/fredwu/bustle.png?branch=master)](http://travis-ci.org/fredwu/bustle) [![Dependency Status](https://gemnasium.com/fredwu/bustle.png)](https://gemnasium.com/fredwu/bustle) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/fredwu/bustle)
 
 Activities recording and retrieving using a simple Pub/Sub-like interface.
 
