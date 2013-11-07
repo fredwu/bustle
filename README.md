@@ -249,3 +249,7 @@ This gem is released under the [MIT License](http://www.opensource.org/licenses/
 ## Author
 
 [Fred Wu](https://github.com/fredwu), originally built for [500 Startups](http://500.co).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fredwu/bustle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
